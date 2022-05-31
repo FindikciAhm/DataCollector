@@ -62,7 +62,14 @@ uint parsingArguments(int argc, char *argv[]) {
                 sleepTime = atoi(optarg);
                 break;
             default:
-                cout << "HELP" << std::endl;
+                cout << "main [options] data directory\n"
+                << "example:\n"
+                << "main -r \"(File)(*)\" -t 60 ./Testing/test/\n"
+                << "possible options:\n"
+                << "\t-r \t\tCustomize the regular expression on which data is searched. (default: (core.)[a-zA-Z_0-9]+.([0-9a-fA-F]+.)+(lz4) )\n"
+                << "\t-d \t\tCustomize the data collector's directory where it stores the data. (default: ./DataCollector)\n"
+                << "\t-t \t\tAdjust the Data Collector sleep time in seconds. (default: 20 seconds)\n"
+                << "\t-h \t\tShow the help.\n";
                 exit(1);
         }
     }
